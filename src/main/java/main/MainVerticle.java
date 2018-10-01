@@ -1,6 +1,7 @@
 package main;
 
 import AuthMethods.UserAuth;
+import Validators.UserValidator;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
@@ -24,6 +25,7 @@ public class MainVerticle extends AbstractVerticle {
 
         try {
             vertx.deployVerticle(new UserAuth());
+            vertx.deployVerticle(new UserValidator());
         } catch(Exception e) {
             LOGGER.error(e.getMessage());
             System.exit(0);
